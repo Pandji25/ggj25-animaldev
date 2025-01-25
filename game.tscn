@@ -1,0 +1,59 @@
+[gd_scene load_steps=9 format=3 uid="uid://defj7nk2r0ufi"]
+
+[ext_resource type="Script" path="res://game.gd" id="1_ld8p2"]
+[ext_resource type="Script" path="res://straw.gd" id="3_27jse"]
+[ext_resource type="Texture2D" uid="uid://d130lpexg7u5s" path="res://icon.svg" id="3_qfl3s"]
+[ext_resource type="PackedScene" uid="uid://dwd6ggos8ok2p" path="res://test_obstacle.tscn" id="3_s8myv"]
+[ext_resource type="Script" path="res://test_damage_obstacle.gd" id="5_8nmwe"]
+[ext_resource type="PackedScene" uid="uid://cn5odjmv616s6" path="res://rigid_player.tscn" id="6_r3wt8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vbdhc"]
+size = Vector2(426, 424)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v61sh"]
+size = Vector2(214, 226)
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_ld8p2")
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(0, 1920)
+
+[node name="Straw" type="Area2D" parent="."]
+position = Vector2(556, -16)
+script = ExtResource("3_27jse")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Straw"]
+scale = Vector2(3.355, 3.355)
+texture = ExtResource("3_qfl3s")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Straw"]
+shape = SubResource("RectangleShape2D_vbdhc")
+
+[node name="TestDamageObstacle" type="RigidBody2D" parent="." node_paths=PackedStringArray("straw")]
+position = Vector2(326, 1000)
+collision_mask = 3
+gravity_scale = -1.0
+linear_damp = 8.0
+angular_damp = 1.0
+script = ExtResource("5_8nmwe")
+straw = NodePath("../Straw")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TestDamageObstacle"]
+shape = SubResource("RectangleShape2D_v61sh")
+
+[node name="Sprite2D" type="Sprite2D" parent="TestDamageObstacle"]
+modulate = Color(0.854902, 0, 0.243137, 1)
+scale = Vector2(1.67188, 1.76563)
+texture = ExtResource("3_qfl3s")
+
+[node name="TestObstacle" parent="." instance=ExtResource("3_s8myv")]
+position = Vector2(640, 1521)
+collision_layer = 1
+gravity_scale = -1.0
+
+[node name="RigidPlayer" parent="." instance=ExtResource("6_r3wt8")]
+
+[connection signal="body_entered" from="Straw" to="Straw" method="_on_body_entered"]

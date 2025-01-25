@@ -1,0 +1,35 @@
+[gd_scene load_steps=2 format=3 uid="uid://wiqellchwebd"]
+
+[ext_resource type="PackedScene" uid="uid://dwd6ggos8ok2p" path="res://test_obstacle.tscn" id="1_tntu4"]
+
+[node name="Level1" type="Node2D"]
+
+[node name="TestObstacle" parent="." instance=ExtResource("1_tntu4")]
+position = Vector2(150, 301)
+
+[node name="TestObstacle2" parent="." instance=ExtResource("1_tntu4")]
+position = Vector2(941, 541)
+
+[node name="TestObstacle3" parent="." instance=ExtResource("1_tntu4")]
+position = Vector2(249, 673)
+
+[node name="TestObstacle4" parent="." instance=ExtResource("1_tntu4")]
+position = Vector2(519, 943)
+
+[node name="TestObstacle5" parent="." instance=ExtResource("1_tntu4")]
+position = Vector2(49, 1147)
+
+[node name="TestObstacle6" parent="." instance=ExtResource("1_tntu4")]
+position = Vector2(972, 1156)
+
+[node name="TestObstacle7" parent="." instance=ExtResource("1_tntu4")]
+position = Vector2(496, 1375)
+
+[node name="TestObstacle8" parent="." instance=ExtResource("1_tntu4")]
+position = Vector2(51, 1567)
+
+[node name="TestObstacle9" parent="." instance=ExtResource("1_tntu4")]
+position = Vector2(796, 1653)
+
+[node name="TestObstacle10" parent="." instance=ExtResource("1_tntu4")]
+position = Vector2(386, 1935)

@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://dfoqaoo073em0"]
+
+[ext_resource type="Texture2D" uid="uid://d130lpexg7u5s" path="res://icon.svg" id="1_5nqjj"]
+[ext_resource type="Script" path="res://texture_button.gd" id="2_q18rv"]
+
+[node name="Mainmenu" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="TextureButton" type="Button" parent="."]
+layout_mode = 0
+offset_right = 128.0
+offset_bottom = 128.0
+icon = ExtResource("1_5nqjj")
+script = ExtResource("2_q18rv")
+
+[connection signal="button_down" from="TextureButton" to="TextureButton" method="_on_button_down"]
