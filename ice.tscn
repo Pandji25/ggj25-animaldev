@@ -1,0 +1,42 @@
+[gd_scene load_steps=7 format=3 uid="uid://rvwewabhqi46"]
+
+[ext_resource type="PackedScene" uid="uid://cwbowo4hg4vnm" path="res://body_template.tscn" id="1_2blcu"]
+[ext_resource type="Script" path="res://ice.gd" id="2_bvdbs"]
+[ext_resource type="Texture2D" uid="uid://dratand14e5o5" path="res://Assett/Obstacle/icea.PNG" id="2_u840q"]
+[ext_resource type="Texture2D" uid="uid://4ai5lsx0nhau" path="res://Assett/Obstacle/iceb.PNG" id="3_68yme"]
+[ext_resource type="Texture2D" uid="uid://vae0noka5xlv" path="res://Assett/Obstacle/icec.PNG" id="4_c300v"]
+[ext_resource type="PackedScene" uid="uid://cx4e43e00eri1" path="res://placeholder_image.tscn" id="5_qhrvm"]
+
+[node name="Ice" node_paths=PackedStringArray("sprite_element", "collision_element") instance=ExtResource("1_2blcu")]
+script = ExtResource("2_bvdbs")
+sprite_element = [NodePath("Icea"), NodePath("Iceb"), NodePath("Icec")]
+collision_element = [NodePath("colla"), NodePath("collb"), NodePath("collc")]
+damage = 0
+push_force = 0.0
+
+[node name="Icea" type="Sprite2D" parent="." index="0"]
+visible = false
+texture = ExtResource("2_u840q")
+
+[node name="colla" type="CollisionPolygon2D" parent="." index="1"]
+visible = false
+polygon = PackedVector2Array(123, -103.8, 114, -112.8, 114, -115, -99, -115, -111.6, -106, -113.4, -106, -117.4, -95, -118.9, -95, -123, -11.7, -123, 102, -116, 109.7, -116, 111.3, -107.2, 115, 110, 115, 118.8, 107, 120.4, 107, 123, 99.2)
+
+[node name="Iceb" type="Sprite2D" parent="." index="2"]
+visible = false
+texture = ExtResource("3_68yme")
+
+[node name="collb" type="CollisionPolygon2D" parent="." index="3"]
+visible = false
+polygon = PackedVector2Array(248, -109.5, -141.3, -115.5, -271, -115.5, -280.7, -107.5, -282.5, -107.5, -285.5, -97.5, -286.9, -97.5, -292, 18.9, -292, 102.6, -285, 111.1, -285, 112.8, -278.5, 115.5, -180.5, 115.5, 265.1, 95.5, 267.4, 95.5, 281.3, 89.5, 284.1, 89.5, 292, 77.6, 292, 42.4, 269, -82.9, 269, -87.1, 266, -92.1, 266, -94.4, 257, -102.4, 257, -103.8, 248, -107.8)
+
+[node name="Icec" type="Sprite2D" parent="." index="4"]
+visible = false
+texture = ExtResource("4_c300v")
+
+[node name="collc" type="CollisionPolygon2D" parent="." index="5"]
+visible = false
+polygon = PackedVector2Array(-152.5, -140, -196.5, -140, -204.2, -134, -205.9, -134, -210.9, -120, -212.4, -120, -221.5, 55.6, -221.5, 127.2, -219.5, 129.7, -219.5, 132, -208.5, 140, -86.9, 140, -83.9, 138, -81.6, 138, -74.6, 130, -73.1, 130, -69.1, 120, -67.4, 120, -72.5, 28.9, -72.5, 27.3, 186.5, 63.7, 186.5, 65, 203, 65, 210, 61, 212.5, 61, 221.5, 48, 221.5, -75.5, 214.5, -87.5, 214.5, -90.1, 203.5, -97.2, 203.5, -98.8)
+
+[node name="PlaceholderImage" parent="." index="6" instance=ExtResource("5_qhrvm")]
+texture = ExtResource("2_u840q")

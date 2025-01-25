@@ -1,15 +1,22 @@
-[gd_scene load_steps=5 format=3 uid="uid://d0k2bvlyfs10u"]
+[gd_scene load_steps=6 format=3 uid="uid://cwfo4ai7y4o0n"]
 
 [ext_resource type="Script" path="res://bouncy.gd" id="1_1pprw"]
 [ext_resource type="Texture2D" uid="uid://bnbucfumw1mmw" path="res://Assett/Obstacle/jela.PNG" id="2_gkr05"]
 [ext_resource type="Texture2D" uid="uid://v2qbef83p1a5" path="res://Assett/Obstacle/jelb.PNG" id="3_6oqgm"]
 [ext_resource type="Texture2D" uid="uid://d3nf7n3g0xikr" path="res://Assett/Obstacle/jelc.PNG" id="4_i61rx"]
+[ext_resource type="PackedScene" uid="uid://cx4e43e00eri1" path="res://placeholder_image.tscn" id="5_aylpi"]
 
-[node name="Bouncy" type="RigidBody2D"]
+[node name="Bouncy" type="RigidBody2D" node_paths=PackedStringArray("sprite_element", "collision_element")]
 collision_layer = 2
 collision_mask = 3
 gravity_scale = -1.0
+linear_damp = 8.0
+angular_damp = 1.0
 script = ExtResource("1_1pprw")
+sprite_element = [NodePath("Jela"), NodePath("Jelb"), NodePath("Jelc")]
+collision_element = [NodePath("cola"), NodePath("colb"), NodePath("colc")]
+damage = 0
+push_force = 3500.0
 
 [node name="Jela" type="Sprite2D" parent="."]
 visible = false
@@ -18,6 +25,7 @@ texture = ExtResource("2_gkr05")
 [node name="cola" type="CollisionPolygon2D" parent="."]
 visible = false
 polygon = PackedVector2Array(-63, -136, 139, -53, 70, 133, -138, 70)
+disabled = true
 
 [node name="Jelb" type="Sprite2D" parent="."]
 visible = false
@@ -26,6 +34,7 @@ texture = ExtResource("3_6oqgm")
 [node name="colb" type="CollisionPolygon2D" parent="."]
 visible = false
 polygon = PackedVector2Array(-43, -155, 143, -84, 14, 150, -142, 99)
+disabled = true
 
 [node name="Jelc" type="Sprite2D" parent="."]
 visible = false
@@ -34,3 +43,7 @@ texture = ExtResource("4_i61rx")
 [node name="colc" type="CollisionPolygon2D" parent="."]
 visible = false
 polygon = PackedVector2Array(-59, -52, 66, -68, 67, 69, -72, 62)
+disabled = true
+
+[node name="PlaceholderImage" parent="." instance=ExtResource("5_aylpi")]
+texture = ExtResource("2_gkr05")

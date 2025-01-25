@@ -13,7 +13,7 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	# Moves and rotates the straw ensuring it to always aim towards the player.
-	# Would be best if there are nodes that act as limits for the movement.
+	# TODO: Would be best if there are nodes that act as limits for the movement.
 	if target:
 		look_at(target.global_position)
 		rotation_degrees = clamp(rotation_degrees, 30, 150)
@@ -40,6 +40,6 @@ func _on_body_entered(body: Node2D) -> void:
 
 func _on_player_destroyed():
 	# Makes sure that the target doesn't return an error.
-	# Probably best if there is a default position for the straw to lock on
+	# TODO: Probably best if there is a default position for the straw to lock on
 	# if the player is destroyed.
 	target = null

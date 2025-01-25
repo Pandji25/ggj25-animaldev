@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://hw1m0h8wbkj0"]
+
+[ext_resource type="PackedScene" uid="uid://cwbowo4hg4vnm" path="res://body_template.tscn" id="1_3fblv"]
+[ext_resource type="Script" path="res://base_variant_obstacle.gd" id="2_pmahh"]
+
+[node name="BaseVariantObstacle" instance=ExtResource("1_3fblv")]
+script = ExtResource("2_pmahh")

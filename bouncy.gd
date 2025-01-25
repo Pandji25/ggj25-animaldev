@@ -1,4 +1,23 @@
-extends RigidBody2D
+extends VariantDamageObstacle
+
+
+
+
+#this one is for random sizes
+func _ready() -> void:
+	setup()
+	
+	#placeholder.visible = false
+	
+	var sizes = randf_range(0.5, 1.5)
+	scale.x = sizes
+	scale.y = sizes
+
+'''
+func randomize_variant(count: int):
+	var variant = randi_range(0, count)
+	sprite_element[variant].visible = true
+	collision_element[variant].disabled = false
 
 #i make the type of the jello by enabling disabling the visibility and collision shapes
 func type_jelly_a():
@@ -33,10 +52,4 @@ func randomize_jelly_type():
 		type_jelly_b()
 	if type == 2:
 		type_jelly_c()
-
-#this one is for random sizes
-func _ready() -> void:
-	randomize_jelly_type()
-	var sizes = randf_range(0.5, 1.5)
-	scale.x = sizes
-	scale.y = sizes
+'''

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://c6wnf3k5nsa2r"]
+[gd_scene load_steps=15 format=3 uid="uid://c6wnf3k5nsa2r"]
 
 [ext_resource type="Script" path="res://stage.gd" id="1_a2psq"]
 [ext_resource type="PackedScene" uid="uid://chhq0on3jdca6" path="res://boba.tscn" id="1_w3sjc"]
@@ -15,7 +15,144 @@ size = Vector2(468, 148)
 size = Vector2(476, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nnbu8"]
-size = Vector2(52, 1390)
+size = Vector2(61.6896, 1102.54)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fhgdc"]
+radius = 650.834
+
+[sub_resource type="Animation" id="Animation_c1ut7"]
+resource_name = "level_progress"
+length = 60.0
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CupContainer:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(2, 4, 53.9, 60),
+"transitions": PackedFloat32Array(2, 1, -2, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -634), Vector2(0, -1917), Vector2(0, -2469)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CupContainer/PlasticcupR:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(4, 53.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1346, 1810), Vector2(1367, 1810)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CupContainer/PlasticcupL:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(4, 53.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(573, 1810), Vector2(550, 1810)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CupL:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(2, 4, 53.9, 60),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(111, 583), Vector2(187, 583), Vector2(304, 583), Vector2(348, 583)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CupR:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(2, 4, 53.9, 60),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1812, 580), Vector2(1741, 580), Vector2(1584, 580), Vector2(1514, 580)]
+}
+
+[sub_resource type="Animation" id="Animation_448dl"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CupContainer:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CupContainer/PlasticcupR:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1495, 1810)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CupContainer/PlasticcupL:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(488, 1810)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CupL:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(111, 583)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CupR:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1812, 580)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ekmnx"]
+_data = {
+"RESET": SubResource("Animation_448dl"),
+"level_progress": SubResource("Animation_c1ut7")
+}
 
 [node name="Stage" type="Node2D"]
 script = ExtResource("1_a2psq")
@@ -25,6 +162,7 @@ anchor_mode = 0
 
 [node name="Boba" parent="." instance=ExtResource("1_w3sjc")]
 position = Vector2(976, 677)
+speed = 2500.0
 
 [node name="Straw" type="Area2D" parent="." node_paths=PackedStringArray("target")]
 position = Vector2(976, -86)
@@ -51,7 +189,7 @@ position = Vector2(240, -88)
 shape = SubResource("RectangleShape2D_vgygr")
 
 [node name="ObsSpawnTimer" type="Timer" parent="."]
-wait_time = 10.0
+wait_time = 6.0
 one_shot = true
 
 [node name="Spawner" type="Marker2D" parent="." node_paths=PackedStringArray("obs_spawn_timer")]
@@ -59,34 +197,51 @@ position = Vector2(0, 1080)
 script = ExtResource("4_s0awp")
 obs_spawn_timer = NodePath("../ObsSpawnTimer")
 
-[node name="StaticBody2D" type="AnimatableBody2D" parent="."]
-position = Vector2(370, 0)
+[node name="CupContainer" type="Node2D" parent="."]
 
-[node name="PlasticcupL" type="Sprite2D" parent="StaticBody2D"]
-position = Vector2(278, 0)
+[node name="PlasticcupL" type="Sprite2D" parent="CupContainer"]
+position = Vector2(488, 1810)
 scale = Vector2(3, 3)
 texture = ExtResource("5_6j4lg")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(0, 540)
-rotation = -0.105831
-shape = SubResource("RectangleShape2D_nnbu8")
-
-[node name="StaticBody2D2" type="AnimatableBody2D" parent="."]
-position = Vector2(1558, -18)
-
-[node name="PlasticcupR" type="Sprite2D" parent="StaticBody2D2"]
-position = Vector2(-259, 0)
+[node name="PlasticcupR" type="Sprite2D" parent="CupContainer"]
+position = Vector2(1495, 1810)
 scale = Vector2(3, 3)
 texture = ExtResource("6_5ppws")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
-position = Vector2(0, 540)
+[node name="CupL" type="AnimatableBody2D" parent="."]
+position = Vector2(111, 583)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CupL"]
+rotation = -0.105831
+shape = SubResource("RectangleShape2D_nnbu8")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="CupL"]
+position = Vector2(-570, 554)
+rotation = 0.476866
+shape = SubResource("CircleShape2D_fhgdc")
+
+[node name="CupR" type="AnimatableBody2D" parent="."]
+position = Vector2(1812, 580)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CupR"]
 rotation = 0.126589
 shape = SubResource("RectangleShape2D_nnbu8")
 
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="CupR"]
+position = Vector2(555, 579)
+rotation = -0.520492
+shape = SubResource("CircleShape2D_fhgdc")
+
 [node name="Note to pambdj" type="Node" parent="."]
 script = ExtResource("5_htxfe")
+
+[node name="LevelProgression" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ekmnx")
+}
 
 [connection signal="body_entered" from="Straw" to="Straw" method="_on_body_entered"]
 [connection signal="timeout" from="ObsSpawnTimer" to="Spawner" method="_on_obs_spawn_timer_timeout"]

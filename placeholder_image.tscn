@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=3 uid="uid://cx4e43e00eri1"]
+
+[ext_resource type="Script" path="res://placeholder_image.gd" id="2_hbpsr"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_8qf8s"]
+font_size = 66
+
+[node name="PlaceholderImage" type="Sprite2D"]
+script = ExtResource("2_hbpsr")
+
+[node name="Container" type="Node2D" parent="."]
+
+[node name="Label" type="Label" parent="Container"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -56.5
+offset_top = -11.5
+offset_right = 56.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+text = "PLACEHOLDER
+"
+label_settings = SubResource("LabelSettings_8qf8s")
+horizontal_alignment = 1

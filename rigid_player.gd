@@ -6,17 +6,21 @@ signal player_destroyed
 @export var health: int = 3
 @export var speed: float = 3000.0
 
-#indes for emotion for random integer
+# indes for emotion for random integer
 var emote_index: Dictionary = {0 : "smiley", 1 : "wink", 2 : "happy", 3 : "happyblink"}
-#duration of emotion set by random integer
+# duration of emotion set by random integer
 var emote_timer: Dictionary = {"smiley": 5,"happy" : 5,"happyblink" : 3, "wink": 2, }
 
+var input_enabled: bool = true
+
+@onready var input_timer: Timer = $InputTimer
+
 func random_emote():
-	#make random number
+	# make random number
 	var emotion = randi_range(0,3)
-	#makes the random number an "emotion" 
+	# makes the random number an "emotion" 
 	var currentemote = emote_index[emotion]
-	#get the appropriate duration based on the dictionary
+	# get the appropriate duration based on the dictionary
 	var emoteduration = emote_timer[currentemote]
 	$Emote_Timer.set_wait_time(emoteduration)
 	$Sprite2D.play(currentemote)
@@ -30,7 +34,7 @@ func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
 	dir.normalized()
 	
 	# Applies the forces to direction.
-	if dir:
+	if dir and input_enabled:
 		apply_central_force(dir*speed)
 
 # If health reaches zero it will wait for a bit before freeing itself.
@@ -46,11 +50,21 @@ func destroy():
 
 func _on_body_entered(body: Node) -> void:
 	# Calculates the direction of the push according to the position of self and
-	# the DamageObstacle
-	# Push force and Damage should probably be stored in the DamageObstacle instead.
+	# the DamageObstacle.
+	# Takes the properties of DamageObstacle and apply it to knockback and damage.
 	if body is DamageObstacle:
 		var dir: Vector2 = global_position - body.global_position
-		var push_force: float = 1200.0
-		apply_central_impulse(dir.normalized()*push_force)
+		var push_force: float = body.push_force
+		var damage: int = body.damage
 		
-		decrease_health(1)
+		if push_force > 0:
+			apply_central_impulse(dir.normalized()*push_force)
+			# Disables input momentarily
+			input_enabled = false
+			input_timer.start()
+		
+		decrease_health(damage)
+
+
+func _on_input_timer_timeout() -> void:
+	input_enabled = true

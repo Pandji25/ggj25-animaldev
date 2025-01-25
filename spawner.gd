@@ -22,7 +22,7 @@ func pick_random() -> void:
 	add_child(to_instantiate.instantiate())
 	
 	# If the spawner has more than 3 children, frees the oldest.
-	if get_child_count() > 3:
+	if get_child_count() > 6:
 		get_child(0).queue_free()
 
 func _on_obs_spawn_timer_timeout() -> void:

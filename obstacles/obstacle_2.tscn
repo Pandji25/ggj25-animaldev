@@ -1,45 +1,25 @@
-[gd_scene load_steps=6 format=3 uid="uid://dudrob1bkajuv"]
+[gd_scene load_steps=4 format=3 uid="uid://dudrob1bkajuv"]
 
-[ext_resource type="PackedScene" uid="uid://cwbowo4hg4vnm" path="res://body_template.tscn" id="1_d8ge2"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_mhtmv"]
-radius = 186.271
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_ogrss"]
-radius = 287.085
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_ilpyf"]
-radius = 170.356
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_vxafh"]
-radius = 233.694
+[ext_resource type="PackedScene" uid="uid://rvwewabhqi46" path="res://ice.tscn" id="2_cnb4o"]
+[ext_resource type="PackedScene" uid="uid://cwfo4ai7y4o0n" path="res://bouncy.tscn" id="2_fcpiw"]
+[ext_resource type="PackedScene" uid="uid://cox2dk8ct8lmo" path="res://hazard.tscn" id="3_ohl50"]
 
 [node name="Obstacle2" type="Node2D"]
 
-[node name="BodyTemplate" parent="." instance=ExtResource("1_d8ge2")]
-position = Vector2(461, 308)
-metadata/_edit_group_ = true
+[node name="Bouncy" parent="." instance=ExtResource("2_fcpiw")]
+position = Vector2(1198, 224)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="BodyTemplate"]
-shape = SubResource("CircleShape2D_mhtmv")
+[node name="Bouncy2" parent="." instance=ExtResource("2_fcpiw")]
+position = Vector2(490, 818)
 
-[node name="BodyTemplate2" parent="." instance=ExtResource("1_d8ge2")]
-position = Vector2(1059, 621)
-metadata/_edit_group_ = true
+[node name="Bouncy3" parent="." instance=ExtResource("2_fcpiw")]
+position = Vector2(1541, 684)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="BodyTemplate2"]
-shape = SubResource("CircleShape2D_ogrss")
+[node name="Ice" parent="." instance=ExtResource("2_cnb4o")]
+position = Vector2(1109, 888)
 
-[node name="BodyTemplate3" parent="." instance=ExtResource("1_d8ge2")]
-position = Vector2(1568, 921)
-metadata/_edit_group_ = true
+[node name="Ice2" parent="." instance=ExtResource("2_cnb4o")]
+position = Vector2(393, 316)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="BodyTemplate3"]
-shape = SubResource("CircleShape2D_ilpyf")
-
-[node name="BodyTemplate4" parent="." instance=ExtResource("1_d8ge2")]
-position = Vector2(474, 876)
-metadata/_edit_group_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="BodyTemplate4"]
-shape = SubResource("CircleShape2D_vxafh")
+[node name="Hazard" parent="." instance=ExtResource("3_ohl50")]
+position = Vector2(948, 560)
