@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://defj7nk2r0ufi"]
+[gd_scene load_steps=10 format=3 uid="uid://defj7nk2r0ufi"]
 
 [ext_resource type="Script" path="res://game.gd" id="1_ld8p2"]
 [ext_resource type="Script" path="res://straw.gd" id="3_27jse"]
@@ -8,10 +8,13 @@
 [ext_resource type="PackedScene" uid="uid://cn5odjmv616s6" path="res://rigid_player.tscn" id="6_r3wt8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vbdhc"]
-size = Vector2(426, 424)
+size = Vector2(426, 244)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2joqk"]
+size = Vector2(416.5, 25)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v61sh"]
-size = Vector2(214, 226)
+size = Vector2(130, 122)
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_ld8p2")
@@ -19,21 +22,43 @@ script = ExtResource("1_ld8p2")
 [node name="Marker2D" type="Marker2D" parent="."]
 position = Vector2(0, 1920)
 
-[node name="Straw" type="Area2D" parent="."]
-position = Vector2(556, -16)
+[node name="Straw" type="Area2D" parent="." node_paths=PackedStringArray("target")]
+z_index = 2
+position = Vector2(553, -112)
+rotation = 1.5708
 script = ExtResource("3_27jse")
-metadata/_edit_group_ = true
+target = NodePath("../RigidPlayer")
 
 [node name="Sprite2D" type="Sprite2D" parent="Straw"]
-scale = Vector2(3.355, 3.355)
+position = Vector2(236, -1.03159e-05)
+rotation = -1.5708
+scale = Vector2(1.97, 3.355)
 texture = ExtResource("3_qfl3s")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Straw"]
+position = Vector2(-3, -5)
 shape = SubResource("RectangleShape2D_vbdhc")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Straw"]
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Straw/StaticBody2D"]
+position = Vector2(238.25, 111.5)
+shape = SubResource("RectangleShape2D_2joqk")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Straw/StaticBody2D"]
+position = Vector2(241, -110)
+shape = SubResource("RectangleShape2D_2joqk")
+
+[node name="Area2D" type="Area2D" parent="Straw"]
+position = Vector2(427, -1.86648e-05)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Straw/Area2D"]
+polygon = PackedVector2Array(188, 229, 296, 134, 324, 1, 294, -144, 191, -233, -122, 3)
 
 [node name="TestDamageObstacle" type="RigidBody2D" parent="." node_paths=PackedStringArray("straw")]
 position = Vector2(326, 1000)
-collision_mask = 3
+collision_mask = 7
 gravity_scale = -1.0
 linear_damp = 8.0
 angular_damp = 1.0
@@ -46,7 +71,6 @@ shape = SubResource("RectangleShape2D_v61sh")
 
 [node name="Sprite2D" type="Sprite2D" parent="TestDamageObstacle"]
 modulate = Color(0.854902, 0, 0.243137, 1)
-scale = Vector2(1.67188, 1.76563)
 texture = ExtResource("3_qfl3s")
 
 [node name="TestObstacle" parent="." instance=ExtResource("3_s8myv")]
