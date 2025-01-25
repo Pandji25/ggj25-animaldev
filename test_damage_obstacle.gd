@@ -27,3 +27,6 @@ func in_range_of(target: Node2D) -> bool:
 		return true
 	else:
 		return false
+
+func destroyed():
+	queue_free()

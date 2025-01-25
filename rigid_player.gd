@@ -1,6 +1,8 @@
 extends RigidBody2D
 class_name RigidPlayer
 
+signal player_destroyed
+
 @export var health: int = 3
 @export var speed: float = 200.0
 
@@ -20,6 +22,7 @@ func decrease_health(dmg:float) -> void:
 
 func destroy():
 	queue_free()
+	player_destroyed.emit()
 
 func _on_body_entered(body: Node) -> void:
 	if body is DamageObstacle:
