@@ -1,0 +1,215 @@
+[gd_scene load_steps=13 format=3 uid="uid://b0htuuh6huy7t"]
+
+[ext_resource type="Texture2D" uid="uid://d0j0ftindperr" path="res://Assett/BG/back1.png" id="1_bewhe"]
+[ext_resource type="Texture2D" uid="uid://ccgnyp5kwnt1f" path="res://Assett/BG/back2.png" id="2_g4yqk"]
+[ext_resource type="Texture2D" uid="uid://c07fbm4bwq1j6" path="res://Assett/BG/back3.png" id="3_55yxk"]
+[ext_resource type="Texture2D" uid="uid://denw8q52e0evr" path="res://Assett/BG/back4.png" id="4_l3p4a"]
+[ext_resource type="Texture2D" uid="uid://b7av42reo2u3b" path="res://Assett/BG/back5.png" id="5_j3x1c"]
+[ext_resource type="Texture2D" uid="uid://ddrhj8onmyq6y" path="res://Assett/UI Element/paper.PNG" id="6_vycam"]
+[ext_resource type="Texture2D" uid="uid://1p41mtnu0nfq" path="res://Assett/UI Element/play.PNG" id="7_ahbvq"]
+[ext_resource type="Texture2D" uid="uid://de407fcwcgwj5" path="res://Assett/UI Element/quit.PNG" id="8_3qbbn"]
+[ext_resource type="Script" path="res://quit_button_2.gd" id="9_iuf47"]
+
+[sub_resource type="Animation" id="Animation_spdqa"]
+resource_name = "Fizzy"
+length = 5.0
+loop_mode = 1
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Back1:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(3, 3, 3),
+"points": PackedFloat32Array(0, -0.591667, 0, 0.591667, 0, 0, -0.591667, 0, 0.591667, 0, 0, -0.658333, 0, 0.658333, 0),
+"times": PackedFloat32Array(0, 2.36667, 5)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Back1:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(3, 3, 3),
+"points": PackedFloat32Array(220.145, -0.733333, 8.145, 0.733333, -8.145, -68.5, -0.733333, -4.5, 0.733333, 4.5, 220.145, -0.666667, -3.145, 0.666667, 3.145),
+"times": PackedFloat32Array(0, 2.4, 5)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Back2:position:x")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(3, 3, 3, 3, 3),
+"points": PackedFloat32Array(-60.6481, -0.333333, -12.6481, 0.333333, 12.6481, -13.8889, -0.4, -16.8889, 0.4, 16.8889, 41.2037, -0.324262, -8.79635, 0.324262, 8.79635, 8.79627, -0.390929, 17.7963, 0.390929, -17.7963, -60.6481, -0.324262, 18.3519, 0.324262, -18.3519),
+"times": PackedFloat32Array(0, 1.16667, 2.36667, 3.66667, 5)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Back2:position:y")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(3, 3, 3, 3, 3),
+"points": PackedFloat32Array(29.4118, -0.308333, 0, 0.308333, 0, -87.5, -0.5, 3.5, 0.5, -3.5, 36.0294, -0.4, -40.0294, 0.4, 40.0294, 84.5, -0.325, 0, 0.325, 0, 29.4118, -0.333333, 0, 0.333333, 0),
+"times": PackedFloat32Array(0, 1.16667, 2.36667, 3.66667, 5)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Back5:position:x")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(-19.9074, -0.25, 0, 0.25, 0, -6.48151, -0.25, 0, 0.25, 0, -19.9074, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 2.43333, 5)
+}
+tracks/5/type = "bezier"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Back5:position:y")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"handle_modes": PackedInt32Array(0, 3, 0),
+"points": PackedFloat32Array(-177.941, -0.25, 0, 0.25, 0, -67.6471, -1.19368, 1.35293, 1.19368, -1.35293, -177.941, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 2.43333, 5)
+}
+
+[sub_resource type="Animation" id="Animation_nf2we"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Back1:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Back1:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-220.145, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Back2:position:x")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-60.6481, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Back2:position:y")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(29.4118, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Back5:position:x")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-19.9074, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/5/type = "bezier"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Back5:position:y")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-177.941, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_i5le7"]
+_data = {
+"Fizzy": SubResource("Animation_spdqa"),
+"RESET": SubResource("Animation_nf2we")
+}
+
+[node name="Main" type="Node2D"]
+
+[node name="Background mockup" type="CanvasGroup" parent="."]
+position = Vector2(962, 537)
+scale = Vector2(2.16, 1.36)
+
+[node name="Back1" type="Sprite2D" parent="Background mockup"]
+position = Vector2(0, -220.145)
+scale = Vector2(0.89, 1)
+texture = ExtResource("1_bewhe")
+
+[node name="Back2" type="Sprite2D" parent="Background mockup"]
+position = Vector2(-60.6481, 29.4118)
+texture = ExtResource("2_g4yqk")
+
+[node name="Back3" type="Sprite2D" parent="Background mockup"]
+position = Vector2(-56.0185, 40.4412)
+texture = ExtResource("3_55yxk")
+
+[node name="Back4" type="Sprite2D" parent="Background mockup"]
+texture = ExtResource("4_l3p4a")
+
+[node name="Back5" type="Sprite2D" parent="Background mockup"]
+position = Vector2(-19.9074, -177.941)
+texture = ExtResource("5_j3x1c")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Background mockup"]
+libraries = {
+"": SubResource("AnimationLibrary_i5le7")
+}
+
+[node name="Paper" type="Sprite2D" parent="."]
+position = Vector2(953, 543)
+rotation = 0.107434
+scale = Vector2(0.923273, 0.923273)
+texture = ExtResource("6_vycam")
+
+[node name="PlayButton" type="TextureButton" parent="Paper"]
+offset_left = -197.32
+offset_top = -233.635
+offset_right = 210.68
+offset_bottom = -53.6352
+texture_normal = ExtResource("7_ahbvq")
+
+[node name="QuitButton2" type="TextureButton" parent="Paper"]
+self_modulate = Color(0.821789, 0.821789, 0.821789, 1)
+offset_left = -198.923
+offset_top = 115.141
+offset_right = 209.077
+offset_bottom = 295.141
+texture_normal = ExtResource("8_3qbbn")
+script = ExtResource("9_iuf47")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Paper"]
+
+[connection signal="mouse_entered" from="Paper/QuitButton2" to="Paper/QuitButton2" method="_on_mouse_entered"]
+[connection signal="pressed" from="Paper/QuitButton2" to="Paper/QuitButton2" method="_on_pressed"]
