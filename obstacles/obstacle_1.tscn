@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=3 uid="uid://c15iojxo10kl3"]
+
+[ext_resource type="PackedScene" uid="uid://cwbowo4hg4vnm" path="res://body_template.tscn" id="1_hqx5n"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qsao2"]
+size = Vector2(600, 232)
+
+[node name="Obstacle1" type="Node2D"]
+
+[node name="BodyTemplate" parent="." instance=ExtResource("1_hqx5n")]
+position = Vector2(397, 461)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BodyTemplate"]
+shape = SubResource("RectangleShape2D_qsao2")
+
+[node name="BodyTemplate2" parent="." instance=ExtResource("1_hqx5n")]
+position = Vector2(1446, 461)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BodyTemplate2"]
+shape = SubResource("RectangleShape2D_qsao2")
+
+[node name="BodyTemplate3" parent="." instance=ExtResource("1_hqx5n")]
+position = Vector2(938, 801)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BodyTemplate3"]
+shape = SubResource("RectangleShape2D_qsao2")

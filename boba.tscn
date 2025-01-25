@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://2wee67jnh6kc"]
+[gd_scene load_steps=12 format=3 uid="uid://chhq0on3jdca6"]
 
 [ext_resource type="Script" path="res://rigid_player.gd" id="1_32gyt"]
 [ext_resource type="Texture2D" uid="uid://dbitn8486tgrd" path="res://Assett/Boba_player.png" id="2_kwudt"]
@@ -99,10 +99,11 @@ _data = {
 [node name="Boba" type="RigidBody2D"]
 collision_mask = 7
 gravity_scale = -1.0
+contact_monitor = true
+max_contacts_reported = 2
 linear_damp = 8.0
 angular_damp = 1.0
 script = ExtResource("1_32gyt")
-speed = 3000.0
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_8ijjp")
@@ -121,4 +122,5 @@ libraries = {
 }
 autoplay = "Kenyal"
 
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="timeout" from="Emote_Timer" to="." method="_on_emote_timer_timeout"]

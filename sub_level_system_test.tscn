@@ -103,6 +103,7 @@ libraries = {
 }
 
 [node name="Spawner" type="Marker2D" parent="."]
+visible = false
 position = Vector2(0, 1080)
 
 [node name="TestLevel" parent="Spawner" instance=ExtResource("1_efc0i")]

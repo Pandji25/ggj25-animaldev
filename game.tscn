@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://defj7nk2r0ufi"]
 
 [ext_resource type="Script" path="res://game.gd" id="1_ld8p2"]
-[ext_resource type="PackedScene" uid="uid://2wee67jnh6kc" path="res://boba.tscn" id="2_ofn1j"]
+[ext_resource type="PackedScene" uid="uid://chhq0on3jdca6" path="res://boba.tscn" id="2_ofn1j"]
 [ext_resource type="Script" path="res://straw.gd" id="3_27jse"]
 [ext_resource type="Texture2D" uid="uid://d130lpexg7u5s" path="res://icon.svg" id="3_qfl3s"]
 [ext_resource type="PackedScene" uid="uid://dwd6ggos8ok2p" path="res://test_obstacle.tscn" id="3_s8myv"]
@@ -24,6 +24,7 @@ script = ExtResource("1_ld8p2")
 
 [node name="Boba" parent="." instance=ExtResource("2_ofn1j")]
 position = Vector2(1231, 646)
+max_contacts_reported = 6
 
 [node name="Marker2D" type="Marker2D" parent="."]
 position = Vector2(509, 1941)
@@ -39,7 +40,7 @@ target = NodePath("../Boba")
 visible = false
 position = Vector2(236, -1.03159e-05)
 rotation = -1.5708
-scale = Vector2(1.97, 3.355)
+scale = Vector2(1.23439, 3.355)
 texture = ExtResource("3_qfl3s")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Straw"]
@@ -84,7 +85,6 @@ texture = ExtResource("3_qfl3s")
 
 [node name="TestObstacle" parent="." instance=ExtResource("3_s8myv")]
 position = Vector2(971, 1032)
-scale = Vector2(0.55, 0.55)
 collision_layer = 1
 gravity_scale = -1.0
 

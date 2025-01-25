@@ -1,0 +1,74 @@
+[gd_scene load_steps=8 format=3 uid="uid://c6wnf3k5nsa2r"]
+
+[ext_resource type="Script" path="res://stage.gd" id="1_a2psq"]
+[ext_resource type="PackedScene" uid="uid://chhq0on3jdca6" path="res://boba.tscn" id="1_w3sjc"]
+[ext_resource type="Script" path="res://straw.gd" id="3_52taf"]
+[ext_resource type="Script" path="res://spawner.gd" id="4_s0awp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2sph0"]
+size = Vector2(468, 148)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vgygr"]
+size = Vector2(476, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nnbu8"]
+size = Vector2(52, 1390)
+
+[node name="Stage" type="Node2D"]
+script = ExtResource("1_a2psq")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
+
+[node name="Boba" parent="." instance=ExtResource("1_w3sjc")]
+position = Vector2(976, 677)
+
+[node name="Straw" type="Area2D" parent="." node_paths=PackedStringArray("target")]
+position = Vector2(976, -86)
+rotation = 1.5708
+collision_layer = 4
+collision_mask = 5
+script = ExtResource("3_52taf")
+target = NodePath("../Boba")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Straw"]
+shape = SubResource("RectangleShape2D_2sph0")
+
+[node name="StrawWalls" type="StaticBody2D" parent="Straw"]
+collision_layer = 4
+collision_mask = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Straw/StrawWalls"]
+position = Vector2(240, 88)
+shape = SubResource("RectangleShape2D_vgygr")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Straw/StrawWalls"]
+position = Vector2(240, -88)
+shape = SubResource("RectangleShape2D_vgygr")
+
+[node name="ObsSpawnTimer" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
+
+[node name="Spawner" type="Marker2D" parent="." node_paths=PackedStringArray("obs_spawn_timer")]
+position = Vector2(0, 1080)
+script = ExtResource("4_s0awp")
+obs_spawn_timer = NodePath("../ObsSpawnTimer")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(-26, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, 540)
+shape = SubResource("RectangleShape2D_nnbu8")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+position = Vector2(1946, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2(0, 540)
+shape = SubResource("RectangleShape2D_nnbu8")
+
+[connection signal="body_entered" from="Straw" to="Straw" method="_on_body_entered"]
+[connection signal="timeout" from="ObsSpawnTimer" to="Spawner" method="_on_obs_spawn_timer_timeout"]

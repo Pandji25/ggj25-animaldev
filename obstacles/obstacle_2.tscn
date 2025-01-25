@@ -1,0 +1,45 @@
+[gd_scene load_steps=6 format=3 uid="uid://dudrob1bkajuv"]
+
+[ext_resource type="PackedScene" uid="uid://cwbowo4hg4vnm" path="res://body_template.tscn" id="1_d8ge2"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mhtmv"]
+radius = 186.271
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ogrss"]
+radius = 287.085
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ilpyf"]
+radius = 170.356
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vxafh"]
+radius = 233.694
+
+[node name="Obstacle2" type="Node2D"]
+
+[node name="BodyTemplate" parent="." instance=ExtResource("1_d8ge2")]
+position = Vector2(461, 308)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BodyTemplate"]
+shape = SubResource("CircleShape2D_mhtmv")
+
+[node name="BodyTemplate2" parent="." instance=ExtResource("1_d8ge2")]
+position = Vector2(1059, 621)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BodyTemplate2"]
+shape = SubResource("CircleShape2D_ogrss")
+
+[node name="BodyTemplate3" parent="." instance=ExtResource("1_d8ge2")]
+position = Vector2(1568, 921)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BodyTemplate3"]
+shape = SubResource("CircleShape2D_ilpyf")
+
+[node name="BodyTemplate4" parent="." instance=ExtResource("1_d8ge2")]
+position = Vector2(474, 876)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BodyTemplate4"]
+shape = SubResource("CircleShape2D_vxafh")

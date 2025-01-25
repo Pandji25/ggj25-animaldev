@@ -4,7 +4,7 @@ class_name RigidPlayer
 signal player_destroyed
 
 @export var health: int = 3
-@export var speed: float = 200.0
+@export var speed: float = 3000.0
 
 #indes for emotion for random integer
 var emote_index: Dictionary = {0 : "smiley", 1 : "wink", 2 : "happy", 3 : "happyblink"}
@@ -24,20 +24,16 @@ func random_emote():
 func _on_emote_timer_timeout() -> void:
 	random_emote()
 
-func _process(_delta: float) -> void:
-	print($Sprite2D.animation)
-
-func play_emote():
-	pass
-
 func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
-	# gets keyboard input
+	# Gets keyboard input direction.
 	var dir: Vector2 = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
 	dir.normalized()
 	
+	# Applies the forces to direction.
 	if dir:
 		apply_central_force(dir*speed)
 
+# If health reaches zero it will wait for a bit before freeing itself.
 func decrease_health(dmg:float) -> void:
 	health -= dmg
 	if health <= 0:
@@ -49,9 +45,12 @@ func destroy():
 	player_destroyed.emit()
 
 func _on_body_entered(body: Node) -> void:
+	# Calculates the direction of the push according to the position of self and
+	# the DamageObstacle
+	# Push force and Damage should probably be stored in the DamageObstacle instead.
 	if body is DamageObstacle:
-		print("collided")
 		var dir: Vector2 = global_position - body.global_position
-		apply_central_impulse(dir.normalized()*1200)
+		var push_force: float = 1200.0
+		apply_central_impulse(dir.normalized()*push_force)
 		
 		decrease_health(1)
