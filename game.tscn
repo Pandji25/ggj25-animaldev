@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://defj7nk2r0ufi"]
+[gd_scene load_steps=11 format=3 uid="uid://defj7nk2r0ufi"]
 
 [ext_resource type="Script" path="res://game.gd" id="1_ld8p2"]
 [ext_resource type="Script" path="res://straw.gd" id="3_27jse"]
@@ -16,7 +16,12 @@ size = Vector2(416.5, 25)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v61sh"]
 size = Vector2(130, 122)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_echct"]
+size = Vector2(58.5234, 2468.92)
+
 [node name="Game" type="Node2D"]
+position = Vector2(633, 0)
+scale = Vector2(0.54182, 0.54182)
 script = ExtResource("1_ld8p2")
 
 [node name="Marker2D" type="Marker2D" parent="."]
@@ -79,5 +84,17 @@ collision_layer = 1
 gravity_scale = -1.0
 
 [node name="RigidPlayer" parent="." instance=ExtResource("6_r3wt8")]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-863.756, 1098.15)
+rotation = -0.0872665
+shape = SubResource("RectangleShape2D_echct")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(2028.35, 1070.47)
+rotation = 0.0872665
+shape = SubResource("RectangleShape2D_echct")
 
 [connection signal="body_entered" from="Straw" to="Straw" method="_on_body_entered"]
