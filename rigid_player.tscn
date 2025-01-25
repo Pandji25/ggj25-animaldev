@@ -1,6 +1,5 @@
-[gd_scene load_steps=4 format=3 uid="uid://cn5odjmv616s6"]
+[gd_scene load_steps=3 format=3 uid="uid://cn5odjmv616s6"]
 
-[ext_resource type="Script" path="res://rigid_player.gd" id="1_mhyc1"]
 [ext_resource type="Texture2D" uid="uid://d130lpexg7u5s" path="res://icon.svg" id="2_i8nhb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_38wuf"]
@@ -13,8 +12,6 @@ contact_monitor = true
 max_contacts_reported = 6
 linear_damp = 2.0
 angular_damp = 1.0
-script = ExtResource("1_mhyc1")
-speed = 2000.0
 metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

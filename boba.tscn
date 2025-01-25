@@ -1,0 +1,124 @@
+[gd_scene load_steps=12 format=3 uid="uid://2wee67jnh6kc"]
+
+[ext_resource type="Script" path="res://rigid_player.gd" id="1_32gyt"]
+[ext_resource type="Texture2D" uid="uid://dbitn8486tgrd" path="res://Assett/Boba_player.png" id="2_kwudt"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cnl3g"]
+atlas = ExtResource("2_kwudt")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c8p8b"]
+atlas = ExtResource("2_kwudt")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ctbwf"]
+atlas = ExtResource("2_kwudt")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y1gmf"]
+atlas = ExtResource("2_kwudt")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8ijjp"]
+animations = [{
+"frames": [{
+"duration": 4.0,
+"texture": SubResource("AtlasTexture_cnl3g")
+}],
+"loop": false,
+"name": &"happy",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 3.0,
+"texture": SubResource("AtlasTexture_c8p8b")
+}],
+"loop": false,
+"name": &"happyblink",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 5.0,
+"texture": SubResource("AtlasTexture_ctbwf")
+}],
+"loop": false,
+"name": &"smiley",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_y1gmf")
+}],
+"loop": false,
+"name": &"wink",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5uiem"]
+radius = 58.4209
+
+[sub_resource type="Animation" id="Animation_w6q8b"]
+resource_name = "Kenyal"
+length = 1.00001
+loop_mode = 2
+step = 0.0833333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.85, 1), Vector2(1, 0.85)]
+}
+
+[sub_resource type="Animation" id="Animation_pvyks"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3d8kr"]
+_data = {
+"Kenyal": SubResource("Animation_w6q8b"),
+"RESET": SubResource("Animation_pvyks")
+}
+
+[node name="Boba" type="RigidBody2D"]
+collision_mask = 7
+gravity_scale = -1.0
+linear_damp = 8.0
+angular_damp = 1.0
+script = ExtResource("1_32gyt")
+speed = 3000.0
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_8ijjp")
+animation = &"wink"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_5uiem")
+
+[node name="Emote_Timer" type="Timer" parent="."]
+autostart = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Sprite2D")
+libraries = {
+"": SubResource("AnimationLibrary_3d8kr")
+}
+autoplay = "Kenyal"
+
+[connection signal="timeout" from="Emote_Timer" to="." method="_on_emote_timer_timeout"]

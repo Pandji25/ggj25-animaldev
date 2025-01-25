@@ -6,6 +6,30 @@ signal player_destroyed
 @export var health: int = 3
 @export var speed: float = 200.0
 
+#indes for emotion for random integer
+var emote_index: Dictionary = {0 : "smiley", 1 : "wink", 2 : "happy", 3 : "happyblink"}
+#duration of emotion set by random integer
+var emote_timer: Dictionary = {"smiley": 5,"happy" : 5,"happyblink" : 3, "wink": 2, }
+
+func random_emote():
+	#make random number
+	var emotion = randi_range(0,3)
+	#makes the random number an "emotion" 
+	var currentemote = emote_index[emotion]
+	#get the appropriate duration based on the dictionary
+	var emoteduration = emote_timer[currentemote]
+	$Emote_Timer.set_wait_time(emoteduration)
+	$Sprite2D.play(currentemote)
+
+func _on_emote_timer_timeout() -> void:
+	random_emote()
+
+func _process(_delta: float) -> void:
+	print($Sprite2D.animation)
+
+func play_emote():
+	pass
+
 func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
 	# gets keyboard input
 	var dir: Vector2 = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
