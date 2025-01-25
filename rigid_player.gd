@@ -6,12 +6,17 @@ signal player_destroyed
 @export var health: int = 3
 @export var speed: float = 200.0
 
+#indes for emotion for random integer
 var emote_index: Dictionary = {0 : "smiley", 1 : "wink", 2 : "happy", 3 : "happyblink"}
+#duration of emotion set by random integer
 var emote_timer: Dictionary = {"smiley": 5,"happy" : 5,"happyblink" : 3, "wink": 2, }
 
 func random_emote():
+	#make random number
 	var emotion = randi_range(0,3)
+	#makes the random number an "emotion" 
 	var currentemote = emote_index[emotion]
+	#get the appropriate duration based on the dictionary
 	var emoteduration = emote_timer[currentemote]
 	$Emote_Timer.set_wait_time(emoteduration)
 	$Sprite2D.play(currentemote)
