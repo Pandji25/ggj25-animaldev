@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://d0k2bvlyfs10u"]
+
+[ext_resource type="Script" path="res://bouncy.gd" id="1_1pprw"]
+[ext_resource type="Texture2D" uid="uid://bnbucfumw1mmw" path="res://Assett/Obstacle/jela.PNG" id="2_gkr05"]
+[ext_resource type="Texture2D" uid="uid://v2qbef83p1a5" path="res://Assett/Obstacle/jelb.PNG" id="3_6oqgm"]
+[ext_resource type="Texture2D" uid="uid://d3nf7n3g0xikr" path="res://Assett/Obstacle/jelc.PNG" id="4_i61rx"]
+
+[node name="Bouncy" type="RigidBody2D"]
+script = ExtResource("1_1pprw")
+
+[node name="Jela" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("2_gkr05")
+
+[node name="cola" type="CollisionPolygon2D" parent="."]
+visible = false
+polygon = PackedVector2Array(-63, -136, 139, -53, 70, 133, -138, 70)
+
+[node name="Jelb" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("3_6oqgm")
+
+[node name="colb" type="CollisionPolygon2D" parent="."]
+visible = false
+polygon = PackedVector2Array(-43, -155, 143, -84, 14, 150, -142, 99)
+
+[node name="Jelc" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("4_i61rx")
+
+[node name="colc" type="CollisionPolygon2D" parent="."]
+visible = false
+polygon = PackedVector2Array(-59, -52, 66, -68, 67, 69, -72, 62)

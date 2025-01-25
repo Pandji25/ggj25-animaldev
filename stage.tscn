@@ -1,9 +1,12 @@
-[gd_scene load_steps=8 format=3 uid="uid://c6wnf3k5nsa2r"]
+[gd_scene load_steps=11 format=3 uid="uid://c6wnf3k5nsa2r"]
 
 [ext_resource type="Script" path="res://stage.gd" id="1_a2psq"]
 [ext_resource type="PackedScene" uid="uid://chhq0on3jdca6" path="res://boba.tscn" id="1_w3sjc"]
 [ext_resource type="Script" path="res://straw.gd" id="3_52taf"]
 [ext_resource type="Script" path="res://spawner.gd" id="4_s0awp"]
+[ext_resource type="Texture2D" uid="uid://c21tkjeo1rfbj" path="res://Assett/BG/plasticcupL.PNG" id="5_6j4lg"]
+[ext_resource type="Script" path="res://note_to_pambdj.gd" id="5_htxfe"]
+[ext_resource type="Texture2D" uid="uid://d17j7sybjkr0a" path="res://Assett/BG/plasticcupR.PNG" id="6_5ppws"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2sph0"]
 size = Vector2(468, 148)
@@ -56,19 +59,34 @@ position = Vector2(0, 1080)
 script = ExtResource("4_s0awp")
 obs_spawn_timer = NodePath("../ObsSpawnTimer")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-position = Vector2(-26, 0)
+[node name="StaticBody2D" type="AnimatableBody2D" parent="."]
+position = Vector2(370, 0)
+
+[node name="PlasticcupL" type="Sprite2D" parent="StaticBody2D"]
+position = Vector2(278, 0)
+scale = Vector2(3, 3)
+texture = ExtResource("5_6j4lg")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(0, 540)
+rotation = -0.105831
 shape = SubResource("RectangleShape2D_nnbu8")
 
-[node name="StaticBody2D2" type="StaticBody2D" parent="."]
-position = Vector2(1946, 0)
+[node name="StaticBody2D2" type="AnimatableBody2D" parent="."]
+position = Vector2(1558, -18)
+
+[node name="PlasticcupR" type="Sprite2D" parent="StaticBody2D2"]
+position = Vector2(-259, 0)
+scale = Vector2(3, 3)
+texture = ExtResource("6_5ppws")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
 position = Vector2(0, 540)
+rotation = 0.126589
 shape = SubResource("RectangleShape2D_nnbu8")
+
+[node name="Note to pambdj" type="Node" parent="."]
+script = ExtResource("5_htxfe")
 
 [connection signal="body_entered" from="Straw" to="Straw" method="_on_body_entered"]
 [connection signal="timeout" from="ObsSpawnTimer" to="Spawner" method="_on_obs_spawn_timer_timeout"]
