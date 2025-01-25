@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://cwbowo4hg4vnm"]
+
+[ext_resource type="Script" path="res://body_template.gd" id="1_1ihdo"]
+
+[node name="BodyTemplate" type="RigidBody2D"]
+gravity_scale = -1.0
+linear_damp = 8.0
+angular_damp = 1.0
+script = ExtResource("1_1ihdo")

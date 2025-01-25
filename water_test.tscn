@@ -1,0 +1,47 @@
+[gd_scene load_steps=5 format=3 uid="uid://pgpex4jqg2mi"]
+
+[ext_resource type="Script" path="res://water.gd" id="1_p7psa"]
+[ext_resource type="Texture2D" uid="uid://d130lpexg7u5s" path="res://icon.svg" id="2_l3v52"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m1rok"]
+size = Vector2(1997, 528)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wfvyq"]
+size = Vector2(136, 126)
+
+[node name="WaterTest" type="Node2D"]
+
+[node name="Water" type="Area2D" parent="."]
+script = ExtResource("1_p7psa")
+bouyancy = 2000.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Water"]
+position = Vector2(963, 224)
+shape = SubResource("RectangleShape2D_m1rok")
+metadata/_edit_group_ = true
+
+[node name="Water2" type="Area2D" parent="."]
+position = Vector2(3, 529)
+script = ExtResource("1_p7psa")
+bouyancy = -1500.0
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Water2"]
+position = Vector2(963, 224)
+shape = SubResource("RectangleShape2D_m1rok")
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+position = Vector2(930, 940)
+gravity_scale = -1.0
+linear_damp = 8.0
+angular_damp = 1.0
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="RigidBody2D"]
+texture = ExtResource("2_l3v52")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+shape = SubResource("RectangleShape2D_wfvyq")
+
+[connection signal="body_entered" from="Water" to="Water" method="_on_body_entered"]
+[connection signal="body_entered" from="Water2" to="Water2" method="_on_body_entered"]
