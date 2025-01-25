@@ -1,11 +1,11 @@
 [gd_scene load_steps=11 format=3 uid="uid://defj7nk2r0ufi"]
 
 [ext_resource type="Script" path="res://game.gd" id="1_ld8p2"]
+[ext_resource type="PackedScene" uid="uid://2wee67jnh6kc" path="res://boba.tscn" id="2_ofn1j"]
 [ext_resource type="Script" path="res://straw.gd" id="3_27jse"]
 [ext_resource type="Texture2D" uid="uid://d130lpexg7u5s" path="res://icon.svg" id="3_qfl3s"]
 [ext_resource type="PackedScene" uid="uid://dwd6ggos8ok2p" path="res://test_obstacle.tscn" id="3_s8myv"]
 [ext_resource type="Script" path="res://test_damage_obstacle.gd" id="5_8nmwe"]
-[ext_resource type="PackedScene" uid="uid://cn5odjmv616s6" path="res://rigid_player.tscn" id="6_r3wt8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vbdhc"]
 size = Vector2(298, 104.001)
@@ -22,6 +22,9 @@ size = Vector2(58.5234, 2468.92)
 [node name="Game" type="Node2D"]
 script = ExtResource("1_ld8p2")
 
+[node name="Boba" parent="." instance=ExtResource("2_ofn1j")]
+position = Vector2(1231, 646)
+
 [node name="Marker2D" type="Marker2D" parent="."]
 position = Vector2(509, 1941)
 
@@ -30,7 +33,7 @@ z_index = 2
 position = Vector2(1062, -91)
 rotation = 1.5708
 script = ExtResource("3_27jse")
-target = NodePath("../RigidPlayer")
+target = NodePath("../Boba")
 
 [node name="Sprite2D" type="Sprite2D" parent="Straw"]
 visible = false
@@ -84,10 +87,6 @@ position = Vector2(971, 1032)
 scale = Vector2(0.55, 0.55)
 collision_layer = 1
 gravity_scale = -1.0
-
-[node name="RigidPlayer" parent="." instance=ExtResource("6_r3wt8")]
-position = Vector2(1256, 883)
-scale = Vector2(0.405, 0.405)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(509, 21)
