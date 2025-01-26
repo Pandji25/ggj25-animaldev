@@ -1,8 +1,9 @@
-[gd_scene load_steps=15 format=3 uid="uid://c6wnf3k5nsa2r"]
+[gd_scene load_steps=16 format=3 uid="uid://c6wnf3k5nsa2r"]
 
 [ext_resource type="Script" path="res://stage.gd" id="1_a2psq"]
 [ext_resource type="PackedScene" uid="uid://chhq0on3jdca6" path="res://boba.tscn" id="1_w3sjc"]
 [ext_resource type="Script" path="res://straw.gd" id="3_52taf"]
+[ext_resource type="AudioStream" uid="uid://cglwtaib1bjmx" path="res://Assett/Audio/Succ.ogg" id="4_in77l"]
 [ext_resource type="Script" path="res://spawner.gd" id="4_s0awp"]
 [ext_resource type="Texture2D" uid="uid://c21tkjeo1rfbj" path="res://Assett/BG/plasticcupL.PNG" id="5_6j4lg"]
 [ext_resource type="Script" path="res://note_to_pambdj.gd" id="5_htxfe"]
@@ -83,6 +84,20 @@ tracks/4/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [Vector2(1812, 580), Vector2(1741, 580), Vector2(1584, 580), Vector2(1514, 580)]
+}
+tracks/5/type = "method"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Straw/SuctionAudio")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [0.0],
+"method": &"play"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_448dl"]
@@ -187,6 +202,10 @@ shape = SubResource("RectangleShape2D_vgygr")
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Straw/StrawWalls"]
 position = Vector2(240, -88)
 shape = SubResource("RectangleShape2D_vgygr")
+
+[node name="SuctionAudio" type="AudioStreamPlayer" parent="Straw"]
+stream = ExtResource("4_in77l")
+volume_db = -5.0
 
 [node name="ObsSpawnTimer" type="Timer" parent="."]
 wait_time = 6.0

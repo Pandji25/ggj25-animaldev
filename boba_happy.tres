@@ -1,0 +1,54 @@
+[gd_resource type="SpriteFrames" load_steps=6 format=3 uid="uid://rv5w878xcbdx"]
+
+[ext_resource type="Texture2D" uid="uid://dbitn8486tgrd" path="res://Assett/Boba_player.png" id="1_5ud3s"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cnl3g"]
+atlas = ExtResource("1_5ud3s")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c8p8b"]
+atlas = ExtResource("1_5ud3s")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ctbwf"]
+atlas = ExtResource("1_5ud3s")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y1gmf"]
+atlas = ExtResource("1_5ud3s")
+region = Rect2(128, 0, 128, 128)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 4.0,
+"texture": SubResource("AtlasTexture_cnl3g")
+}],
+"loop": false,
+"name": &"happy",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 3.0,
+"texture": SubResource("AtlasTexture_c8p8b")
+}],
+"loop": false,
+"name": &"happyblink",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 5.0,
+"texture": SubResource("AtlasTexture_ctbwf")
+}],
+"loop": false,
+"name": &"smiley",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_y1gmf")
+}],
+"loop": false,
+"name": &"wink",
+"speed": 5.0
+}]
