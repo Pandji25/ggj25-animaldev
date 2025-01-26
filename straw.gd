@@ -30,8 +30,8 @@ func _on_body_entered(body: Node2D) -> void:
 		to_delete.decrease_health(3)
 		
 		# Waits for a bit before reloading the scene.
-		await get_tree().create_timer(2).timeout
-		get_tree().reload_current_scene()
+		#await get_tree().create_timer(2).timeout
+		#get_tree().reload_current_scene()
 
 
 func _on_player_destroyed():

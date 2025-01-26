@@ -65,14 +65,13 @@ position = Vector2(427, -1.86648e-05)
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Straw/SuctionArea"]
 polygon = PackedVector2Array(188, 229, 296, 134, 324, 1, 294, -144, 191, -233, -122, 3)
 
-[node name="TestDamageObstacle" type="RigidBody2D" parent="." node_paths=PackedStringArray("straw")]
+[node name="TestDamageObstacle" type="RigidBody2D" parent="."]
 position = Vector2(1071.92, 895.829)
 collision_mask = 7
 gravity_scale = -1.0
 linear_damp = 8.0
 angular_damp = 1.0
 script = ExtResource("5_8nmwe")
-straw = NodePath("../Straw")
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TestDamageObstacle"]
