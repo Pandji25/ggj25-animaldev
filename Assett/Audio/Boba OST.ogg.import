@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://oube0u0te1r"
+path="res://.godot/imported/Boba OST.ogg-3e8fe093eb55b849bc960652b7dc62a1.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assett/Audio/Boba OST.ogg"
+dest_files=["res://.godot/imported/Boba OST.ogg-3e8fe093eb55b849bc960652b7dc62a1.oggvorbisstr"]
+
+[params]
+
+loop=true
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

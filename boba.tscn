@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://chhq0on3jdca6"]
 
 [ext_resource type="Script" path="res://rigid_player.gd" id="1_32gyt"]
-[ext_resource type="SpriteFrames" uid="uid://btxi0y5bp84v2" path="res://boba_happy.tres" id="2_gkxlx"]
+[ext_resource type="SpriteFrames" uid="uid://rv5w878xcbdx" path="res://boba_happy.tres" id="2_gkxlx"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5uiem"]
 radius = 58.4209

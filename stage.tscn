@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://c6wnf3k5nsa2r"]
+[gd_scene load_steps=21 format=3 uid="uid://c6wnf3k5nsa2r"]
 
 [ext_resource type="Script" path="res://stage.gd" id="1_a2psq"]
 [ext_resource type="PackedScene" uid="uid://chhq0on3jdca6" path="res://boba.tscn" id="1_w3sjc"]
@@ -11,7 +11,8 @@
 [ext_resource type="Texture2D" uid="uid://c21tkjeo1rfbj" path="res://Assett/BG/plasticcupL.PNG" id="5_6j4lg"]
 [ext_resource type="Script" path="res://note_to_pambdj.gd" id="5_htxfe"]
 [ext_resource type="Texture2D" uid="uid://d17j7sybjkr0a" path="res://Assett/BG/plasticcupR.PNG" id="6_5ppws"]
-[ext_resource type="PackedScene" uid="uid://bjk55if63qn55" path="res://game_over.tscn" id="9_vhqc3"]
+[ext_resource type="PackedScene" path="res://game_over.tscn" id="9_vhqc3"]
+[ext_resource type="AudioStream" uid="uid://oube0u0te1r" path="res://Assett/Audio/Boba OST.ogg" id="13_8uq2h"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2sph0"]
 size = Vector2(468, 148)
@@ -286,6 +287,10 @@ libraries = {
 
 [node name="Game_Over" parent="." node_paths=PackedStringArray("stage") instance=ExtResource("9_vhqc3")]
 stage = NodePath("..")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("13_8uq2h")
+autoplay = true
 
 [connection signal="body_entered" from="Straw" to="Straw" method="_on_body_entered"]
 [connection signal="timeout" from="ObsSpawnTimer" to="Spawner" method="_on_obs_spawn_timer_timeout"]

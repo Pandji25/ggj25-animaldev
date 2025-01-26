@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://b0htuuh6huy7t"]
+[gd_scene load_steps=8 format=3 uid="uid://b0htuuh6huy7t"]
 
 [ext_resource type="VideoStream" path="res://Assett/BG/test.ogv" id="1_76hdf"]
 [ext_resource type="Texture2D" uid="uid://ddrhj8onmyq6y" path="res://Assett/UI Element/paper.PNG" id="2_0qyi4"]
 [ext_resource type="Texture2D" uid="uid://1p41mtnu0nfq" path="res://Assett/UI Element/play.PNG" id="3_n8ftv"]
 [ext_resource type="Script" path="res://play_button.gd" id="4_jcr6s"]
 [ext_resource type="Texture2D" uid="uid://de407fcwcgwj5" path="res://Assett/UI Element/quit.PNG" id="5_2u5rt"]
+[ext_resource type="AudioStream" uid="uid://cd60pxmww3fyl" path="res://Assett/Audio/Boba OST Main Menu.ogg" id="7_5k1b8"]
 [ext_resource type="Script" path="res://quit_button_2.gd" id="9_iuf47"]
 
 [node name="Main" type="Node2D"]
@@ -41,6 +42,10 @@ texture_normal = ExtResource("5_2u5rt")
 script = ExtResource("9_iuf47")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Paper"]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_5k1b8")
+autoplay = true
 
 [connection signal="mouse_entered" from="Paper/PlayButton" to="Paper/PlayButton" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="Paper/PlayButton" to="Paper/PlayButton" method="_on_mouse_exited"]
