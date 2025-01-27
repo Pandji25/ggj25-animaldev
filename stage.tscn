@@ -11,7 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://c21tkjeo1rfbj" path="res://Assett/BG/plasticcupL.PNG" id="5_6j4lg"]
 [ext_resource type="Script" path="res://note_to_pambdj.gd" id="5_htxfe"]
 [ext_resource type="Texture2D" uid="uid://d17j7sybjkr0a" path="res://Assett/BG/plasticcupR.PNG" id="6_5ppws"]
-[ext_resource type="PackedScene" path="res://game_over.tscn" id="9_vhqc3"]
+[ext_resource type="PackedScene" uid="uid://bjk55if63qn55" path="res://game_over.tscn" id="9_vhqc3"]
 [ext_resource type="AudioStream" uid="uid://oube0u0te1r" path="res://Assett/Audio/Boba OST.ogg" id="13_8uq2h"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2sph0"]
