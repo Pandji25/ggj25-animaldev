@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://defj7nk2r0ufi"]
 
 [ext_resource type="Script" path="res://game.gd" id="1_ld8p2"]
-[ext_resource type="PackedScene" uid="uid://chhq0on3jdca6" path="res://boba.tscn" id="2_ofn1j"]
+[ext_resource type="PackedScene" uid="uid://2wee67jnh6kc" path="res://boba.tscn" id="2_ofn1j"]
 [ext_resource type="Script" path="res://straw.gd" id="3_27jse"]
 [ext_resource type="Texture2D" uid="uid://d130lpexg7u5s" path="res://icon.svg" id="3_qfl3s"]
 [ext_resource type="PackedScene" uid="uid://dwd6ggos8ok2p" path="res://test_obstacle.tscn" id="3_s8myv"]

@@ -26,14 +26,15 @@ scale = Vector2(0.923273, 0.923273)
 texture = ExtResource("2_0qyi4")
 
 [node name="PlayButton" type="TextureButton" parent="Paper"]
-offset_left = -197.32
-offset_top = -233.635
-offset_right = 210.68
-offset_bottom = -53.6352
+offset_left = -209.354
+offset_top = -62.3932
+offset_right = 198.646
+offset_bottom = 117.607
 texture_normal = ExtResource("3_n8ftv")
 script = ExtResource("4_jcr6s")
 
 [node name="QuitButton2" type="TextureButton" parent="Paper"]
+visible = false
 offset_left = -198.923
 offset_top = 115.141
 offset_right = 209.077
