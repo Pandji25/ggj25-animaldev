@@ -25,6 +25,7 @@ scale = Vector2(0.923273, 0.923273)
 texture = ExtResource("6_vycam")
 
 [node name="PlayButton" type="TextureButton" parent="Paper"]
+<<<<<<< Updated upstream
 offset_left = -197.32
 offset_top = -233.635
 offset_right = 210.68
@@ -38,6 +39,22 @@ offset_top = 115.141
 offset_right = 209.077
 offset_bottom = 295.141
 texture_normal = ExtResource("8_3qbbn")
+=======
+offset_left = -204.878
+offset_top = -41.0883
+offset_right = 203.122
+offset_bottom = 138.911
+texture_normal = ExtResource("3_n8ftv")
+script = ExtResource("4_jcr6s")
+
+[node name="QuitButton2" type="TextureButton" parent="Paper"]
+visible = false
+offset_left = -204.071
+offset_top = 673.461
+offset_right = 203.929
+offset_bottom = 853.461
+texture_normal = ExtResource("5_2u5rt")
+>>>>>>> Stashed changes
 script = ExtResource("9_iuf47")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Paper"]
