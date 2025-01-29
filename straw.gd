@@ -27,7 +27,7 @@ func _on_body_entered(body: Node2D) -> void:
 		var to_delete = body
 		body = null
 		
-		to_delete.decrease_health(3)
+		to_delete.decrease_health(4)
 		
 		# Waits for a bit before reloading the scene.
 		#await get_tree().create_timer(2).timeout

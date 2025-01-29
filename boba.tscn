@@ -1,7 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://2wee67jnh6kc"]
+[gd_scene load_steps=12 format=3 uid="uid://chhq0on3jdca6"]
 
 [ext_resource type="Script" path="res://rigid_player.gd" id="1_32gyt"]
-[ext_resource type="SpriteFrames" uid="uid://du1mjmydyh3wq" path="res://boba_happy.tres" id="2_gkxlx"]
+[ext_resource type="SpriteFrames" uid="uid://rv5w878xcbdx" path="res://boba_happy.tres" id="2_gkxlx"]
+[ext_resource type="PackedScene" uid="uid://uapp4letkv1x" path="res://boba_gibs_hurt.tscn" id="3_ux7we"]
+[ext_resource type="PackedScene" uid="uid://cug0hy3lhl78j" path="res://boba_gibs_death.tscn" id="4_1mbsm"]
+[ext_resource type="PackedScene" uid="uid://bjpj1efs88cpw" path="res://boba_headgib_hurt.tscn" id="4_iqp0k"]
+[ext_resource type="PackedScene" uid="uid://b43cg6younphl" path="res://boba_headgib_death.tscn" id="5_adw11"]
+[ext_resource type="PackedScene" uid="uid://ce4v0hjdd5vop" path="res://boba_headgib_instadeath.tscn" id="6_saw4i"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5uiem"]
 radius = 58.4209
@@ -78,6 +83,16 @@ one_shot = true
 [node name="VoiceTimer" type="Timer" parent="."]
 
 [node name="VoiceAudio" type="AudioStreamPlayer" parent="."]
+
+[node name="boba_gibs_hurt" parent="." instance=ExtResource("3_ux7we")]
+
+[node name="boba_gibs_death" parent="." instance=ExtResource("4_1mbsm")]
+
+[node name="boba_headgib_hurt" parent="." instance=ExtResource("4_iqp0k")]
+
+[node name="boba_headgib_death" parent="." instance=ExtResource("5_adw11")]
+
+[node name="boba_headgib_instadeath" parent="." instance=ExtResource("6_saw4i")]
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="timeout" from="Emote_Timer" to="." method="_on_emote_timer_timeout"]

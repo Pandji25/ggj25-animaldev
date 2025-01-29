@@ -1,0 +1,59 @@
+[gd_resource type="SpriteFrames" load_steps=6 format=3 uid="uid://cjvbukueo3ynb"]
+
+[ext_resource type="Texture2D" uid="uid://dbitn8486tgrd" path="res://Assett/Boba_player.png" id="1_w12l5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3s22s"]
+atlas = ExtResource("1_w12l5")
+region = Rect2(384, 384, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_krgak"]
+atlas = ExtResource("1_w12l5")
+region = Rect2(512, 384, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ciydd"]
+atlas = ExtResource("1_w12l5")
+region = Rect2(128, 384, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_of8j2"]
+atlas = ExtResource("1_w12l5")
+region = Rect2(512, 256, 128, 128)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3s22s")
+}],
+"loop": true,
+"name": &"death_gib_1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_krgak")
+}],
+"loop": true,
+"name": &"death_gib_2",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"death_gib_3",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ciydd")
+}],
+"loop": true,
+"name": &"gib_1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_of8j2")
+}],
+"loop": true,
+"name": &"gib_2",
+"speed": 5.0
+}]

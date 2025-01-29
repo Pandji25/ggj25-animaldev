@@ -1,23 +1,119 @@
-[gd_scene load_steps=8 format=3 uid="uid://b0htuuh6huy7t"]
+[gd_scene load_steps=18 format=3 uid="uid://b0htuuh6huy7t"]
 
 [ext_resource type="VideoStream" path="res://Assett/BG/test.ogv" id="1_76hdf"]
 [ext_resource type="Texture2D" uid="uid://ddrhj8onmyq6y" path="res://Assett/UI Element/paper.PNG" id="2_0qyi4"]
+[ext_resource type="Texture2D" uid="uid://bwlpsdkewl8m7" path="res://Assett/UI Element/back1.png" id="2_o47oq"]
+[ext_resource type="Shader" path="res://wavy.gdshader" id="3_87j0d"]
 [ext_resource type="Texture2D" uid="uid://1p41mtnu0nfq" path="res://Assett/UI Element/play.PNG" id="3_n8ftv"]
+[ext_resource type="Texture2D" uid="uid://buhqjmic12naa" path="res://Assett/UI Element/back2.png" id="4_f5ff1"]
 [ext_resource type="Script" path="res://play_button.gd" id="4_jcr6s"]
+[ext_resource type="Texture2D" uid="uid://k7oxlx78wn3m" path="res://Assett/UI Element/back3.png" id="5_0onf5"]
 [ext_resource type="Texture2D" uid="uid://de407fcwcgwj5" path="res://Assett/UI Element/quit.PNG" id="5_2u5rt"]
+[ext_resource type="Texture2D" uid="uid://jw1vh6x624hk" path="res://Assett/UI Element/back4.png" id="6_nnwhb"]
 [ext_resource type="AudioStream" uid="uid://cd60pxmww3fyl" path="res://Assett/Audio/Boba OST Main Menu.ogg" id="7_5k1b8"]
+[ext_resource type="Texture2D" uid="uid://ba1hbgjcbm82r" path="res://Assett/UI Element/back5.png" id="7_q2ffp"]
 [ext_resource type="Script" path="res://quit_button_2.gd" id="9_iuf47"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_40wdi"]
+shader = ExtResource("3_87j0d")
+shader_parameter/waveAmplitude = 0.4
+shader_parameter/correctVertex = true
+shader_parameter/waveFrequency = 10.0
+shader_parameter/verticalWave = true
+shader_parameter/keepTransparency = true
+shader_parameter/useTime = true
+shader_parameter/waveSpeed = 1.0
+shader_parameter/progress = 0.0
+shader_parameter/firstHalf = 0.5
+shader_parameter/secondHalf = 0.5
+shader_parameter/freezeFirstHalf = false
+shader_parameter/freezeSecondHalf = false
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_t6jub"]
+shader = ExtResource("3_87j0d")
+shader_parameter/waveAmplitude = 0.3
+shader_parameter/correctVertex = true
+shader_parameter/waveFrequency = 10.0
+shader_parameter/verticalWave = true
+shader_parameter/keepTransparency = true
+shader_parameter/useTime = true
+shader_parameter/waveSpeed = 0.8
+shader_parameter/progress = 0.0
+shader_parameter/firstHalf = 0.5
+shader_parameter/secondHalf = 0.5
+shader_parameter/freezeFirstHalf = false
+shader_parameter/freezeSecondHalf = false
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_25r4b"]
+resource_local_to_scene = true
+shader = ExtResource("3_87j0d")
+shader_parameter/waveAmplitude = 0.25
+shader_parameter/correctVertex = true
+shader_parameter/waveFrequency = 10.0
+shader_parameter/verticalWave = false
+shader_parameter/keepTransparency = true
+shader_parameter/useTime = true
+shader_parameter/waveSpeed = 0.7
+shader_parameter/progress = 0.0
+shader_parameter/firstHalf = 0.5
+shader_parameter/secondHalf = 0.5
+shader_parameter/freezeFirstHalf = false
+shader_parameter/freezeSecondHalf = false
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_joa6r"]
+resource_local_to_scene = true
+shader = ExtResource("3_87j0d")
+shader_parameter/waveAmplitude = 0.1
+shader_parameter/correctVertex = true
+shader_parameter/waveFrequency = 30.0
+shader_parameter/verticalWave = false
+shader_parameter/keepTransparency = true
+shader_parameter/useTime = true
+shader_parameter/waveSpeed = 0.5
+shader_parameter/progress = 0.0
+shader_parameter/firstHalf = 0.5
+shader_parameter/secondHalf = 0.5
+shader_parameter/freezeFirstHalf = false
+shader_parameter/freezeSecondHalf = false
 
 [node name="Main" type="Node2D"]
 
 [node name="Background mockup" type="CanvasGroup" parent="."]
 
 [node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="Background mockup"]
+visible = false
 offset_right = 1920.0
 offset_bottom = 1088.0
 stream = ExtResource("1_76hdf")
 autoplay = true
 loop = true
+
+[node name="Back1" type="Sprite2D" parent="Background mockup"]
+texture = ExtResource("2_o47oq")
+centered = false
+
+[node name="Back2" type="Sprite2D" parent="Background mockup"]
+material = SubResource("ShaderMaterial_40wdi")
+position = Vector2(0, -217)
+texture = ExtResource("4_f5ff1")
+centered = false
+
+[node name="Back3" type="Sprite2D" parent="Background mockup"]
+material = SubResource("ShaderMaterial_t6jub")
+texture = ExtResource("5_0onf5")
+centered = false
+
+[node name="Back4" type="Sprite2D" parent="Background mockup"]
+material = SubResource("ShaderMaterial_25r4b")
+position = Vector2(-82, 0)
+texture = ExtResource("6_nnwhb")
+centered = false
+
+[node name="Back5" type="Sprite2D" parent="Background mockup"]
+material = SubResource("ShaderMaterial_joa6r")
+position = Vector2(-54, 0)
+texture = ExtResource("7_q2ffp")
+centered = false
 
 [node name="Paper" type="Sprite2D" parent="."]
 position = Vector2(953, 543)

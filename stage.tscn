@@ -1,7 +1,7 @@
 [gd_scene load_steps=21 format=3 uid="uid://c6wnf3k5nsa2r"]
 
 [ext_resource type="Script" path="res://stage.gd" id="1_a2psq"]
-[ext_resource type="PackedScene" uid="uid://chhq0on3jdca6" path="res://boba.tscn" id="1_w3sjc"]
+[ext_resource type="PackedScene" path="res://boba.tscn" id="1_w3sjc"]
 [ext_resource type="Script" path="res://milk.gd" id="2_he1bi"]
 [ext_resource type="Script" path="res://straw.gd" id="3_52taf"]
 [ext_resource type="Texture2D" uid="uid://cky55c0mioygc" path="res://Assett/BG/milk.PNG" id="3_giqt1"]

@@ -3,7 +3,7 @@ class_name RigidPlayer
 
 signal player_destroyed
 
-@export var health: int = 3
+@export var health: int = 4
 @export var speed: float = 3000.0
 
 # indes for emotion for random integer
@@ -47,7 +47,7 @@ func random_emote():
 	$Sprite2D.play(currentemote)
 
 func _on_emote_timer_timeout() -> void:
-	if health >= 3:
+	if health >= 4:
 		random_emote()
 
 func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
@@ -63,22 +63,33 @@ func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
 func decrease_health(dmg: float) -> void:
 	health -= dmg
 	
-	if health < 3:
+	if health < 4:
 		sprite.sprite_frames = hurt_frames
 		match health:
+			3:
+				sprite.play(&"hurt_1")
 			2: 
-				sprite.play(&"hurt_little")
+				sprite.play(&"hurt_2")
 			1:
-				sprite.play(&"hurt_lot")
-			0:
-				sprite.play(&"death")
+				sprite.play(&"hurt_3")
+		if health == 1 and dmg > 0:
+			$boba_headgib_hurt.emitting=true
 		if health > 0 and dmg > 0:
 			voice_audio.stream = OUCH
 			voice_audio.play()
+			$boba_gibs_hurt.emitting=true
+			$boba_gibs_hurt.restart()
 		elif health <= 0 and dmg > 0:
 			voice_audio.stream = DEAD
 			voice_audio.play()
+			$boba_gibs_death.emitting=true
+			$boba_gibs_death.restart()
 	if health <= 0:
+		sprite.play(&"death")
+		if dmg >= 4 and health > -3:
+			$boba_headgib_instadeath.emitting=true
+		else:  
+			$boba_headgib_death.emitting=true
 		await get_tree().create_timer(0.5).timeout
 		destroy()
 

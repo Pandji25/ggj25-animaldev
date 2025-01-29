@@ -1,14 +1,18 @@
-[gd_resource type="SpriteFrames" load_steps=6 format=3 uid="uid://du1mjmydyh3wq"]
+[gd_resource type="SpriteFrames" load_steps=7 format=3 uid="uid://bw8bujv14qk81"]
 
 [ext_resource type="Texture2D" uid="uid://dbitn8486tgrd" path="res://Assett/Boba_player.png" id="1_5ud3s"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_cnl3g"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_o3up8"]
 atlas = ExtResource("1_5ud3s")
-region = Rect2(512, 0, 128, 128)
+region = Rect2(384, 0, 128, 125)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_c8p8b"]
 atlas = ExtResource("1_5ud3s")
 region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p6ueh"]
+atlas = ExtResource("1_5ud3s")
+region = Rect2(512, 0, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ctbwf"]
 atlas = ExtResource("1_5ud3s")
@@ -21,8 +25,8 @@ region = Rect2(128, 0, 128, 128)
 [resource]
 animations = [{
 "frames": [{
-"duration": 4.0,
-"texture": SubResource("AtlasTexture_cnl3g")
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o3up8")
 }],
 "loop": false,
 "name": &"happy",
@@ -34,6 +38,14 @@ animations = [{
 }],
 "loop": false,
 "name": &"happyblink",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p6ueh")
+}],
+"loop": true,
+"name": &"scared",
 "speed": 5.0
 }, {
 "frames": [{

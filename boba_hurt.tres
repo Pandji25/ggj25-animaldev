@@ -1,38 +1,28 @@
-[gd_resource type="SpriteFrames" load_steps=7 format=3 uid="uid://dvkc4c01rh8bk"]
+[gd_resource type="SpriteFrames" load_steps=6 format=3 uid="uid://qv83gudowfty"]
 
 [ext_resource type="Texture2D" uid="uid://dbitn8486tgrd" path="res://Assett/Boba_player.png" id="1_conh1"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_t3ym6"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_re16q"]
 atlas = ExtResource("1_conh1")
-region = Rect2(256, 128, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_lhd6f"]
-atlas = ExtResource("1_conh1")
-region = Rect2(384, 128, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_vgooa"]
-atlas = ExtResource("1_conh1")
-region = Rect2(512, 128, 128, 128)
+region = Rect2(256, 256, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_x2y11"]
 atlas = ExtResource("1_conh1")
 region = Rect2(0, 128, 128, 128)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_h2q5a"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_kuxp6"]
 atlas = ExtResource("1_conh1")
-region = Rect2(128, 128, 128, 128)
+region = Rect2(256, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2shx0"]
+atlas = ExtResource("1_conh1")
+region = Rect2(512, 128, 128, 128)
 
 [resource]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_t3ym6")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_lhd6f")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_vgooa")
+"texture": SubResource("AtlasTexture_re16q")
 }],
 "loop": false,
 "name": &"death",
@@ -43,14 +33,22 @@ animations = [{
 "texture": SubResource("AtlasTexture_x2y11")
 }],
 "loop": true,
-"name": &"hurt_little",
+"name": &"hurt_1",
 "speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_h2q5a")
+"texture": SubResource("AtlasTexture_kuxp6")
 }],
 "loop": true,
-"name": &"hurt_lot",
+"name": &"hurt_2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2shx0")
+}],
+"loop": true,
+"name": &"hurt_3",
 "speed": 5.0
 }]
